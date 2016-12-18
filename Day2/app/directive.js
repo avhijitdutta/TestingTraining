@@ -6,7 +6,7 @@ angular.module('myApp').directive("userInfo",function(){
 		'job':'=',
 		'change':'&'
 	};
-	obj.template="<div>This is a user info <div>{{user.fname}}</div>";
+	obj.template="<div>This is user info directive <div>{{user.fname}}</div>";
 	obj.template+="<input ng-model='user.fname'> </div>"; 
 	obj.template+="<button ng-click=\"change({job:{'name':'avhijit',job:'IT'}})\">Chnage Name </button>"; 
 	obj.template+="<input type='text' ng-model='job'>";
