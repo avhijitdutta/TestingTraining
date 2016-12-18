@@ -43,7 +43,7 @@ describe('Controller: loginCtrl', function () {
     scope.user.email="counter.jit";
     scope.user.password="123456";
     scope.$apply();
-    expect(scope.login.$valid).toEqual(false)
+    expect(scope.login.$valid).toEqual(false);
   });
 
    it('init : form testing with vaild email id', function () {

@@ -1,0 +1,6 @@
+#install karma globally. 
+
+npm install -g karma-cli
+
+#Install Phantam JS
+npm install -g phantomjs
