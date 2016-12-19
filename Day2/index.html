@@ -2,12 +2,20 @@
 <html>
 <body ng-app="myApp">
   <div ng-controller="MyCtrl">
-    <b>Hello all : </b> <span ng-bind="CourseName"> </span>!
+    <b>Hello all : </b> <span ng-bind="CourseName | makeUpperCase"> </span>!
+    <div>
+    {{10 | ordinal}}
+    </div>
+    <div>
+    {{'avhijit' | capitalize:2}}
+    </div>
+    <div>
+    {{123 | customCurrency:'$':true:1:2}}
+    </div>
   </div>
-  <user-info> </user-info>
+ <!--  <user-info> </user-info> -->
   <script type="text/javascript" src="lib/angular.js"></script>
   <script type="text/javascript" src="app/app.js"></script>
-  <script type="text/javascript" src="app/factory.js"></script>
-  <script type="text/javascript" src="app/directive.js"></script>
+  <script type="text/javascript" src="app/filter.js"></script>
 </body>
 </html>
