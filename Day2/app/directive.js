@@ -3,15 +3,11 @@ angular.module('myApp').directive("userInfo",function(){
 	obj.restrict="E";
 	obj.scope={
 		'age':'@',
-		'job':'=',
+		'info':'=',
 		'change':'&'
 	};
-	obj.template="<div>This is user info directive <div>{{user.fname}}</div>";
-	obj.template+="<input ng-model='user.fname'> </div>"; 
-	obj.template+="<button ng-click=\"change({job:{'name':'avhijit',job:'IT'}})\">Chnage Name </button>"; 
-	obj.template+="<input type='text' ng-model='job'>";
-	obj.controller=function($scope){
-		
-	}
+	obj.template="<div>This is user info directive</div>";
+	obj.template+="<p><ul><li>{{info.fname}}</li><li>{{info.lname}}</li> <li>{{info.job}}</li> <li>{{age}} </li></ul></p>";
+	obj.template+="<button ng-click=\"change()\"> </button>";
 	return obj;
 });

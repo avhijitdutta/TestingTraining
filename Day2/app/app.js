@@ -3,11 +3,11 @@ angular.module('myApp',[])
 
 	$scope.CourseName="We will start learning How to write testable angular code";
 
-	$scope.user={fname:'Avhijit',lname:'Dutta','job':'IT','age':'26'};
+	$scope.user={fname:'Avhijit',lname:'Dutta','job':'IT'};
 
 
-	$scope.ChangeName=function(message){
-		console.log(message);
+	$scope.changeValue=function(message){
+		alert("sss");
 	}
 	
 }]);

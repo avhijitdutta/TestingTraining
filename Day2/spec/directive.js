@@ -2,28 +2,39 @@
 
 describe("directive : userInfo",function(){
 
-	beforeEach(module('myApp'));
+  beforeEach(module('myApp'));
+  var scope,compile,directiveElem;
 
-	var compile,scope,directiveElem;
+  function getCompiledElem(){
+  	var elem="<user-info info=\"info\" age=\"age\" change=\"onChange()\"> </user-info>";
+  	var compiledElement=compile(elem)(scope);
+  	scope.$digest();
+  	return compiledElement;
+  }
 
-	function getCompiledElement(){
-		var elem=angular.element("<user-info> </user-info>");
-		var compileElem=compile(elem)(scope);
-		scope.$digest();
-		return compileElem;
-	}
+  // Initialize the controller and a mock scope
+  beforeEach(inject(function ($rootScope,$compile) {
+    scope = $rootScope.$new();
+    scope.info={name:'avhijit'};
+    scope.age = '23';
+    scope.onChange = jasmine.createSpy('onChange');
 
-	beforeEach(inject(function($compile,$rootScope){
-		scope=$rootScope.$new();
-		compile=$compile;
-		directiveElem = getCompiledElement();
-	}));
+    compile=$compile;
+    directiveElem=getCompiledElem();
+  }));
 
-	it('test directive',function(){
+  it("check the dom value",function(){
+  	var divElem=directiveElem.find('div');
+  	expect(divElem.text()).toBe('This is user info directive');
 
-		var divElement = directiveElem.find('div');
-  		expect(divElement).toBeDefined();
-		expect(divElement.text()).toEqual('This is user info directive  ');
-	});
+  	var isolatedScope=directiveElem.isolateScope();
+  	expect(isolatedScope.info).toEqual({name:'avhijit'});
+  	isolatedScope.info.name="sudu";
+  	expect(scope.info.name).toEqual('sudu');
 
+  	expect(typeof(scope.onChange)).toEqual('function');
+  	isolatedScope.change();
+  	expect(scope.onChange).toHaveBeenCalled();
+  })
+  
 });
