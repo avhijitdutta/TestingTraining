@@ -22,7 +22,6 @@ angular.module('contactMgmtApp')
 		  headers : { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' }
 		});
     };
-
     this.loginUser=function(loginData){
     	
     	return $http({
@@ -31,7 +30,7 @@ angular.module('contactMgmtApp')
 		  url: 'http://tekspeaks.com/training/auth.php',
 		  headers : { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' }
 		});
-    }
+    };
     
 
   }]);
