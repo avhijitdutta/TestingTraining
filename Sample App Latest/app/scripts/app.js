@@ -16,7 +16,6 @@
         templateUrl: 'views/login.html',
         controller: 'loginCtrl',
         class:'login-page'
-        
       })
       .otherwise({
         redirectTo: '/login'
