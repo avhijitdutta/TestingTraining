@@ -1,22 +1,20 @@
 'use strict';
 
-angular.module('contactMgmtApp').controller('loginCtrl', ['$scope','loginService', function($scope,loginService){
+angular.module('contactMgmtApp').controller('loginCtrl', ['$scope','$location', function($scope,$location){
 	
 /*	setTimeout(function() {
 		window.dispatchEvent(new Event('resize'));
 	}, 100);
 	*/
-	$scope.ListData=[];
-	loginService.getData().then(function(argument) {
-			console.log(argument.data);
-			$scope.ListData=argument.data;
-		}, function(error) {
-				console.error(error)
-		}
-	);
 
-	$scope.loginForm=function(){
-	
+	$scope.loginForm=function(loginForm){
+		if(loginForm.$valid){	
+			alert("Valid");
+			$location.path('/main');
+		}else{
+			alert("No valid");
+			console.warn('login data not valid');
+		}
 	};
 
 }]);

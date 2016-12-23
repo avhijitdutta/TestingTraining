@@ -15,8 +15,8 @@ describe('Controller: loginCtrl', function () {
       // place here mocked dependencies
     });
   }));
-
+/*
   it('init : controller', function () {
 
-  });
+  });*/
 });

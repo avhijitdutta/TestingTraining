@@ -35,14 +35,14 @@
                   <th>Email</th>
                   <th>Mobile</th>
                 </tr>
-                <tr ng-repeat="i in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18]">
-                  <td>183</td>
-                  <td><a href="/#createContact/{{i}}">John Doe</a></td>
-                  <td>11-7-2014</td>
+                <tr ng-repeat="item in listData">
+                  <td>{{item.index}}</td>
+                  <td><a href="/#createContact/{{item.index}}" ng-click="setData(item);">{{item.name}} </a></td>
+                  <td>{{item.registered}}</td>
                   <td><span class="label label-success">Approved</span></td>
-                  <td>03227828647</td>
-                  <td>counter.jit@gmail.com</td>
-                  <td>8170008963</td>
+                  <td>{{item.phone}}</td>
+                  <td>{{item.email}}</td>
+                  <td>{{item.phone}}</td>
                 </tr>
               </table>
             </div>

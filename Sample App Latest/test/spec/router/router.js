@@ -13,20 +13,15 @@ describe('router testing', function () {
           route = _$route_;
           rootScope = _$rootScope_;
           $httpBackend=_$httpBackend_;
-          $httpBackend.expectGET('login')
-            .respond(200);
   }));
 
   it('should load the login page on successful load of /login', function() {
-  
-
-    it('should load the login page on successful load of /login', function() {
-       
-
+    
+        $httpBackend.when('GET','views/login.html').respond(200,{});
         location.path('/login');
         rootScope.$digest();
-        expect(route.current.controller).toBe('LoginCtrl');
-    });
+        expect(route.current.controller).toBe('loginCtrl');
+        $httpBackend.flush();
   });
 
 });

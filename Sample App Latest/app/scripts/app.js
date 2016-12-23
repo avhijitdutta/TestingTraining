@@ -17,6 +17,21 @@
         controller: 'loginCtrl',
         class:'login-page'
       })
+      .when('/reg', {
+        templateUrl: 'views/reg.html',
+        controller: 'RegCtrl',
+        class:'login-page'
+      })
+      .when('/main', {
+        templateUrl: 'views/main.html',
+        controller: 'MainCtrl',
+        class:'layout-top-nav'
+      })
+      .when('/createContact/:id', {
+        templateUrl: 'views/createContact.html',
+        controller: 'CreatecontactCtrl',
+        class:'layout-top-nav'
+      })
       .otherwise({
         redirectTo: '/login'
       });
